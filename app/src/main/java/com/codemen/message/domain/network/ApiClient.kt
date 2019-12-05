@@ -8,11 +8,10 @@ import retrofit2.http.GET
 
 object ApiClient {
 
-
-
-
     interface ServicesApiInterface{
         @GET("/posts")
-            fun posts(): Call<PostResponse>
+            fun getPost(): Call<List<PostResponse>>
     }
+
+
 }

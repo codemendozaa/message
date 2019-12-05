@@ -2,6 +2,7 @@ package com.codemen.message.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.codemen.message.MainAdapter
@@ -24,7 +25,13 @@ class MainActivity : AppCompatActivity() {
         adapter = MainAdapter(this)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
-
-
+        observeData()
     }
-}
+        fun observeData(){
+            viewModel.fetchUserData().observe(this, Observer {
+                adapter.setListData(it)
+                adapter.notifyDataSetChanged()
+            })
+        }
+    }
+

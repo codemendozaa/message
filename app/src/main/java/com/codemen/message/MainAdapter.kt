@@ -44,7 +44,7 @@ class MainAdapter(private  val context :Context) : RecyclerView.Adapter<MainAdap
         fun  binView(user: Usuario){
 
             Glide.with(context)
-                .load(user.imageUrl)
+                .load(user.Userid)
                 .into(itemView.circleImageView)
             itemView.txt_title.text = user.title
             itemView.txt_body .text = user.body
